@@ -1,0 +1,52 @@
+ @if(showBtn){
+    <button (click)="sendMessage()" class=" bg-indigo-500 hover:bg-fuchsia-500 cursor-pointer">Send Message to Parent</button>
+} 
+<!-- <h1>Hello, {{ name }}!</h1> -->
+ @else {
+     <div class="flex gap-[50px]">
+    @for (name of names; track name.id;let i = $index ) {
+        <div class="max-w-sm rounded overflow-hidden shadow-md border border-gray-200">
+    <div class="flex items-center p-4">
+        <div
+        class="w-12 h-12 rounded-full bg-cover bg-center mr-4"
+        style="background-image: url('https://material.angular.dev/assets/img/examples/shiba1.jpg');">
+        </div>
+        <div>
+        <h2 class="text-lg font-semibold">{{name.name}}</h2>
+        <p class="text-sm text-gray-500">{{name.id}}</p>
+        </div>
+    </div>
+
+
+    <img
+        src={{name.img}}
+        alt="Photo of a Shiba Inu"
+        class="w-[400px] h-[400px]"
+    />
+
+    <div class="p-4">
+        <p class="text-gray-700 text-sm">
+        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+        bred for hunting.
+        </p>
+    </div>
+
+    <div class="px-4 pb-4 flex gap-2">
+        <button class="px-4 py-2 bg-blue-500 text-white text-sm rounded hover:bg-blue-600 transition">
+        LIKE
+        </button>
+        <button class="px-4 py-2 bg-blue-500 text-white text-sm rounded hover:bg-blue-600 transition">
+        SHARE
+        </button>
+    </div>
+    </div>
+
+    }
+  </div>
+ }
+
+   
+ 
+  
+
