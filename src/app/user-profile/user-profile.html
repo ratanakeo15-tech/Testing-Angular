@@ -33,7 +33,7 @@
     </div>
 
     <div class="px-4 pb-4 flex gap-2">
-        <button class="px-4 py-2 bg-blue-500 text-white text-sm rounded hover:bg-blue-600 transition">
+        <button class="btn px-4 py-2 bg-blue-500 text-white text-sm rounded hover:bg-blue-600 transition">
         LIKE
         </button>
         <button class="px-4 py-2 bg-blue-500 text-white text-sm rounded hover:bg-blue-600 transition">
@@ -45,7 +45,44 @@
     }
   </div>
  }
+ <h1>User Profile</h1>
+    <p>Welcome back!</p>
+    <!-- @defer is a control flow block introduced in Angular v17 as part of the new declarative control flow syntax (like @if, @for, etc.). -->
+    @defer (when showStats; ) {
+      <h3>User Stats</h3>
+      <ul>
+        <li>Posts: 123</li>
+        <li>Followers: 456</li>
+        <li>Following: 789</li>
+      </ul>
+      <!-- @placeholder is a block you use inside an @defer block to show temporary content before the deferred content starts loading. -->
+    } @placeholder {
+      <p>Stats will load shortly...</p>
+      <!-- Show the @loading content while the deferred content is being prepared. -->
+    } @loading {
+      <p>Loading user stats...</p>
+    }
 
+    <button (click)="loadStats()" class=" bg-cyan-500 px-5 cursor-pointer rounded-tr-lg">Load Stats</button>
+    <img ngSrc="https://i.pinimg.com/736x/73/82/06/7382061f21f161aff267d5b0cb2c3c29.jpg" alt="" width="300" 
+      height="200" 
+      alt="Optimized"
+      loading="lazy">
+       
+      <!-- What Does loading="lazy" Mean?
+loading="lazy" is an HTML attribute that tells the browser:
+
+“Don’t load this image until the user scrolls near it.”
+
+
+🧠 Why Use It?
+It speeds up your initial page load, especially when:
+
+You have many images (like in a gallery)
+
+Images are below the fold (not visible right away)
+
+Users may never scroll to some images -->
    
  
   

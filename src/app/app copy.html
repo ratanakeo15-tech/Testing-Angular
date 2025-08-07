@@ -1,0 +1,106 @@
+<h1>My App</h1>
+
+<nav>
+  <a routerLink="/home">Home</a> |
+  <a routerLink="/about">About</a>
+</nav>
+<router-outlet></router-outlet>
+<h1 class="text-3xl font-bold underline ">
+  Hello world!
+</h1>
+@if(isLoggedIn()){
+<br><h2 class="text-3xl font-bold bg-indigo-500 hover:bg-fuchsia-500">
+  Username : {{title()}}
+  Username : {{title()}}
+</h2>
+}
+@else {
+  <br><h2 class="text-3xl font-bold bg-indigo-500 hover:bg-fuchsia-500">
+ Is you real
+</h2>
+
+}
+<mat-slide-toggle class="mt-5">Toggle me!</mat-slide-toggle>
+<div class="max-w-sm rounded overflow-hidden shadow-md border border-gray-200">
+  <div class="flex items-center p-4">
+    <div
+      class="w-12 h-12 rounded-full bg-cover bg-center mr-4"
+      style="background-image: url('https://material.angular.dev/assets/img/examples/shiba1.jpg');">
+    </div>
+    <div>
+      <h2 class="text-lg font-semibold">Shiba Inu</h2>
+      <p class="text-sm text-gray-500">Dog Breed</p>
+    </div>
+  </div>
+
+
+  <img
+    src="https://material.angular.dev/assets/img/examples/shiba2.jpg"
+    alt="Photo of a Shiba Inu"
+    class="w-full h-auto"
+  />
+
+  <div class="p-4">
+    <p class="text-gray-700 text-sm">
+      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+      bred for hunting.
+    </p>
+  </div>
+
+  <div class="px-4 pb-4 flex gap-2">
+    <button class="px-4 py-2 bg-blue-500 text-white text-sm rounded hover:bg-blue-600 transition">
+      LIKE
+    </button>
+    <button class="px-4 py-2 bg-blue-500 text-white text-sm rounded hover:bg-blue-600 transition">
+      SHARE
+    </button>
+  </div>
+</div>
+
+<!-- @for -->
+ <ul class="p-4 text-lg">
+  @for (name of names; track name) {
+    <li class="mb-2">Hello, {{ name }} 👋</li>
+  }
+</ul>
+
+@for (os of operatingSystems; track os.id;let i = $index) {
+  <!--track use for optimize performance by helping Angular know how to identify each item uniquely. -->
+      <div>Brand {{ i + 1 }} : {{ os.name}} Age : {{os.age}}</div>
+    }
+<!-- Property Binding = Attribute-->
+ <!-- Property binding in Angular lets you set the value of a DOM element’s property from your component class. -->
+<br><input [value]="username()" class="border-1 font-bold">
+<!-- Parentheses = () -->
+ <!-- Event handling -->
+  <!-- click event -->
+ <br><button (click)="sayHello()" class="bg-blue-500 text-white px-4 py-2 rounded mt-5 cursor-pointer">
+  Say Hello(Click)
+</button>
+<!-- mouseover event-->
+  <br><button (mouseover)="onMouseOver()" class="bg-blue-500 text-white px-4 py-2 rounded mt-5 cursor-pointer">
+  Say Hello(onmouseover)
+</button>
+<p class="mt-4 text-lg text-green-600 ">{{ message }}</p>
+<!-- <h1>{{myname}}</h1> -->
+ @if(showBtn()) {
+    <h1>Message: {{ newmessage }}</h1>
+    <app-user-profile (messageEvent)="receiveMessage($event)"></app-user-profile>
+ }
+ @else {
+  <app-user-profile [names]="names"></app-user-profile>
+ }
+
+
+  <!-- command for create component 
+=> ng g c user-profile
+ -->
+
+
+ <!-- @Output get value from child component -->
+
+
+
+
+  

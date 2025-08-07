@@ -4,6 +4,9 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { UserProfile } from "./user-profile/user-profile";
+import {About} from './about/about';
+import {Home} from './home/home';
+
 interface Person {
   id: number; // ✅ Now id must be a number
   name: string;
@@ -12,7 +15,34 @@ interface Person {
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MatSlideToggleModule, MatCardModule, MatButtonModule, UserProfile], changeDetection: ChangeDetectionStrategy.OnPush,
+   standalone: true,
+  //how to use route
+  // imports: [RouterOutlet],
+  //<!-- app.component.html -->
+// <nav>
+//   <a routerLink="/">Home</a>
+//   <a routerLink="/about">About</a>
+// </nav>
+
+//  Routed components render here 
+// <router-outlet></router-outlet>
+
+//how to manage route
+// export const routes: Routes = [
+//   { path: '', component: HomeComponent },
+//   { path: 'about', component: AboutComponent },
+// ];
+//   Because Angular uses routing to load components based on the URL. The <router-outlet> tells Angular:
+
+// "This is where you should render the component for the current route."
+  // <router-outlet> is a directive that acts as a placeholder in your HTML where routed components will be displayed.
+  imports: [
+    RouterOutlet,
+     MatSlideToggleModule, 
+     MatCardModule, 
+     MatButtonModule
+    ], 
+     changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
@@ -40,6 +70,10 @@ newmessage = '';
     this.newmessage = event;
   }
   showBtn=signal(false);
-  // if you want to display array of card just change it to false
+  // if you want to display button just change it to true
+// how to create component by command
+  // ng generate component nameOfComponent
+
+
 }
 
