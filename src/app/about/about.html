@@ -1,1 +1,78 @@
-<p class="text-[20px] text-red-700">about works!</p>
+ <p>Framework: {{ favoriteFramework }}</p>
+    <label for="framework">
+      Favorite Framework:
+      <input id="framework" type="text" class="border-5" [(ngModel)]="favoriteFramework" />
+    </label>
+     <br><button (click)="showFramework()" class="bg-blue-300 px-5 py-[20px] mt-5 rounded-md">Show Framework</button>
+
+     <br>
+      <form>
+      <label>Name
+        <input type="text"  class="border-5"/>
+      </label>
+      <label>Email
+        <input type="email" class="border-5"/>
+      </label><br>
+      <button type="submit" class="bg-blue-300 px-5 py-[20px] mt-5 rounded-md">Submit</button>
+    </form>
+<!-- form group -->
+    <form [formGroup]="profileForm" (ngSubmit)="handleSubmit()">
+  <label>
+    Name
+    <input type="text" formControlName="name" />
+  </label>
+  <label>
+    Email
+    <input type="email" formControlName="email" />
+  </label>
+  <!-- disabled is use to hide information  -->
+  <button [disabled]="!profileForm.valid" type="submit" class="bg-cyan-500 px-5 py-2 ">Submit</button>
+</form>
+
+<!-- Handle update to the form -->
+ ...
+<h2>Profile Form</h2>
+<p>Name: {{ profileForm.value.name }}</p>
+<p>Email: {{ profileForm.value.email }}</p>
+ 
+ <button (click)="logMessage()" class="bg-cyan-500 px-5 py-2 ">Show Log</button>
+ <h1>{{loggerMessage()}}</h1>
+ <h1 class="text-blue-600">{{ loudMessage | uppercase }}</h1>
+ <p>Price: {{ price | currency }}</p>   
+ <p>Date: {{ today | date:'fullDate' }}</p>
+
+<!-- reverse pipe -->
+ <h1>Reverse Machine: {{word() | reverse }}</h1>
+ @let user = user$ | async;
+
+ <!-- async is a pipe used in templates to work with asynchronous data like:
+
+Observable<T>
+
+Promise<T> -->
+    
+    <!-- why we need asyn 
+    1. Data is often asynchronous
+    2. async makes it easy to bind observable data to the template
+    3.   🚫 Avoid memory leaks -->
+    @if (user) {
+  <p>Name: {{ user.name }}</p>
+  <p>Age: {{ user.age }}</p>
+}
+<div [ngStyle]="currentStyles">Styled Text</div>
+    <button (click)="setCurrentClasses()" class="bg-cyan-500 px-5 py-2">Apply Styles</button>
+    <!-- ngModel=value -->
+     
+    <div>
+        <br>
+  Pick your favorite hero
+  (<label for="showSad"><input id="showSad" type="checkbox" checked (change)="showSad = !showSad">show sad</label>)
+</div>
+<select [(ngModel)]="hero" class="border-5">
+    @for (h of heroes; track h){
+        @if (showSad || h.emotion !== 'sad'){
+               <option [ngValue]="h">{{ h.name }} ({{ h.emotion }})</option>
+        }
+    }
+
+</select>

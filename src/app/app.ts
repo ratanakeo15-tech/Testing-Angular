@@ -7,6 +7,7 @@ import { UserProfile } from "./user-profile/user-profile";
 import {About} from './about/about';
 import {Home} from './home/home';
 
+
 interface Person {
   id: number; // ✅ Now id must be a number
   name: string;
@@ -40,7 +41,8 @@ interface Person {
     RouterOutlet,
      MatSlideToggleModule, 
      MatCardModule, 
-     MatButtonModule
+     MatButtonModule,
+     
     ], 
      changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './app.html',
