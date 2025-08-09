@@ -1,0 +1,59 @@
+<h1>🛒 Fake Store Products</h1>
+
+{{products.length}}
+   @if (products.length > 0) {
+  <ul>
+    @for (product of products; track product.id) {
+    <img src={{product.image}} alt="">
+     <h1>{{product.category}}</h1>
+     <h1>{{product.description}}</h1>
+    }
+  </ul>
+  <h1>{{products}}</h1>
+
+}
+
+<h1>{{products.category}}</h1>
+<!-- @else {
+  <p>Loading products...</p>
+} -->
+  
+<!-- More understanding go to http knowledge -->
+
+ <!-- an interceptor is like a middleware for HTTP requests and responses. -->
+
+ <!-- Think of it as a security guard + postman standing at the door of your HttpClient. -->
+
+<!-- the interceptor can:
+
+Inspect the request/response
+
+Modify it
+
+Log it
+
+Handle errors -->
+
+<!-- When Interceptors Are Useful
+
+Attach Authentication Tokens
+Add a JWT or API key to every outgoing request automatically.
+
+Log Requests and Responses
+Track all API calls for debugging.
+
+Handle Errors Globally
+Instead of writing .catchError() in every service, handle all 401/404/etc. in one place.
+
+Modify Responses
+Transform data before it reaches your components. -->
+
+<!-- What is hybrid rendering?
+Hybrid rendering allows developers to leverage the benefits of server-side rendering (SSR), pre-rendering (also known as "static site generation" or SSG) and client-side rendering (CSR) to optimize your Angular application. It gives you fine-grained control over how your different parts of your app is rendered to give your users the best experience possible. -->
+<!-- 
+waht should I explore more 
+1.Hydration
+2.http request
+3.Routing
+4. best pratice
+     -->

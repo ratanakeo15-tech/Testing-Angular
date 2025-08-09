@@ -1,23 +1,32 @@
 import { Component,Injectable,inject,signal } from '@angular/core';
 import {FormsModule,ReactiveFormsModule,FormGroup,FormControl,Validators} from '@angular/forms';
 import { LoggerService } from './logger.service';
-import {CurrencyPipe, DatePipe, UpperCasePipe,AsyncPipe,NgStyle, NgIf, NgForOf} from '@angular/common';
+import {CurrencyPipe, DatePipe, UpperCasePipe,AsyncPipe,NgStyle} from '@angular/common';
 import { StarPipe } from './testPipe';
 import { of, delay } from 'rxjs';
+import { HighlightDirective } from '../highlight';
+import { SelectDirective } from '../select';
 // @Injectable() is a decorator that marks a class as available to be injected as a dependency into other classes (like components or services).
+interface Hero {
+  name: string;
+  emotion: string;
+}
 @Injectable({
   providedIn: 'root'
 })
+
 @Component({
   standalone: true,
   selector: 'app-about',
-  imports: [FormsModule,ReactiveFormsModule,UpperCasePipe,CurrencyPipe,DatePipe,StarPipe,AsyncPipe,NgStyle],
+  imports: [FormsModule,ReactiveFormsModule,UpperCasePipe,CurrencyPipe,DatePipe,StarPipe,AsyncPipe,NgStyle,HighlightDirective,SelectDirective],
   // Think of a pipe like a function you use in the template to modify how data appears to the user — without changing the actual data.
   // Example:uppercasePipe...
   templateUrl: './about.html',
-  styleUrl: './about.scss'
+  styleUrl: './about.scss',
+    hostDirectives: [],
 })
 export class About {
+  color = '';
   private logger = inject(LoggerService);
     loggerMessage = signal('');
   favoriteFramework = '';
@@ -66,5 +75,17 @@ logMessage() {
     { name: 'Batman', emotion: 'sad' },
     { name: 'Wonder Woman', emotion: 'excited' },
   ];
+   isVisible = true;
+    heroe: Hero[] = [
+    { name: 'Superman', emotion: 'happy' },
+    { name: 'Batman', emotion: 'sad' },
+    { name: 'Flash', emotion: 'happy' }
+  ];
+
+    onlyHappy = false;
+  selectedHero?: Hero;
+
+  filterHeroes = (hero: Hero) =>
+    !this.onlyHappy || hero.emotion === 'happy';
   }
 

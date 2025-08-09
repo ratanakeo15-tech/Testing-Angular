@@ -43,6 +43,7 @@ interface Person {
      MatCardModule, 
      MatButtonModule,
      
+     
     ], 
      changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './app.html',

@@ -76,3 +76,57 @@ Promise<T> -->
     }
 
 </select>
+<!-- Directive test -->
+ <p appHighlight="color">Highlight me!</p>
+  <input [(ngModel)]="color" placeholder="Type a color like red or #ff0" />
+    <p [appHighlight]="color">Hover me for your custom color!</p>
+<h1 class="font-bold text-3xl">Testing Mouse Enter</h1>
+    <h1>My First Attribute Directive</h1>
+<h2>Pick a highlight color</h2>
+<div>
+  <input type="radio" name="colors" (click)="color='lightgreen'">Green
+  <input type="radio" name="colors" (click)="color='yellow'">Yellow
+  
+  <input type="radio" name="colors" (click)="color='cyan'">Cyan
+ 
+</div>
+@if(color=='lightgreen'){
+  <br><h1 appHighlight=" " [textColor]="color" class="font-bold">Hello Green World</h1>
+}
+@else if (color=='yellow') {
+  <br><h1 appHighlight=" " [textColor]="color" class="font-bold">Hello Yellow World</h1>
+}
+@else {
+   <br><h1 appHighlight=" " [textColor]="color" class="font-bold">Hello cyan World</h1>
+}
+<p [appHighlight]="color" defaultColor="Green" textColor="white">Highlight me!</p>
+
+<!-- test structure Directive -->
+
+<!-- Show if true -->
+<div *select="isVisible">This will only be shown if isVisible is true</div>
+<!-- if we click first isVisible will be fail second click will be true -->
+<button (click)="isVisible = !isVisible" class="px-4 py-2 bg-blue-500 text-white text-sm rounded hover:bg-blue-600 transition">
+  Toggle Visibility
+</button>
+
+<!-- <ng-template [selectFrom]="heroe" [selectWhen]="isHappy" let-hero> -->
+<h1>Generic *select with &lt;select&gt; element</h1>
+
+    <label>
+      Show only happy heroes?
+      <input type="checkbox" [(ngModel)]="onlyHappy">
+    </label>
+
+    <select [(ngModel)]="selectedHero" class="border-5">
+      <option *select="let hero from heroe when filterHeroes">
+        {{ hero.name }} ({{ hero.emotion }})
+      </option>
+    </select>
+
+    <p>Selected hero: {{ selectedHero?.name || 'None' }}</p>
+
+
+
+
+  
