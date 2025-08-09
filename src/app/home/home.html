@@ -1,6 +1,9 @@
 <p>home works!</p>
 <nav>
       <a routerLink="/about">About</a>
-      <a routerLink="/product">Product List</a>
+      <a [routerLink]="['product', '1']">Product List</a>
+      <a routerLink="/profile">UserProfile</a>
 </nav>
-    <router-outlet></router-outlet>
+<router-outlet></router-outlet>
+<!-- every routerlink you should import Routerlink if it's not work 
+and it's won't work direct if you type on url if you want to move to another page just click -->

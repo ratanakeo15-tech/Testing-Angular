@@ -1,9 +1,9 @@
 import { Routes } from "@angular/router";
-import { Home } from "./home";
+import { UserProfile } from "./user-profile";
 
 export default [
     {
         path: '',
-        component: Home,
+        component: UserProfile,
     },
 ] as Routes;

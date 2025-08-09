@@ -1,5 +1,6 @@
-import { Component,Input,Output,EventEmitter } from '@angular/core';
+import { Component,Input,Output,EventEmitter, inject } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 interface Person {
   id: number; // ✅ Now id must be a number
   name: string;
@@ -29,6 +30,8 @@ export class UserProfile {
   loadStats() {
     this.showStats = true;
   }
+   private route = inject(ActivatedRoute);
+  userId: string | null = this.route.snapshot.paramMap.get('id');
 }
 // Pass data from child to parent
 //showBtn follow up showBtn in app.ts shpow if you want whatever it will deisplay specific component you want like if you wanna test @Input using falsw false and if you wanna test @Output using true 

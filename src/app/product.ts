@@ -9,6 +9,10 @@ export interface Product {
   category: string;
   description: string;
   image: string;
+   rating: {
+    rate: number;
+    count: number;
+  };
 }
 @Injectable({ providedIn: 'root' })
 export class ProductService {
